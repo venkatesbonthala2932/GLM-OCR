@@ -1,0 +1,14 @@
+# Extra packages needed by the upload website (webapp.py) and the
+# benchmark/PDF-report tooling under tests/benchmark/.
+#
+# The base OCR dependencies (torch, transformers, pillow, pymupdf, etc.)
+# come from the upstream `glmocr` package; install that first with
+#   pip install -e .[layout]
+#
+# Then install this file:
+#   pip install -r requirements-webapp.txt
+
+fastapi>=0.110
+uvicorn>=0.27
+python-multipart>=0.0.20
+markdown>=3.6
