@@ -64,6 +64,13 @@ def create_app(config: "GlmOcrConfig") -> Flask:
         ) from _FLASK_IMPORT_ERROR
 
     app = Flask(__name__)
+    @app.after_request
+    def add_cors(resp):
+        resp.headers["Access-Control-Allow-Origin"]  = "*"
+        resp.headers["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        resp.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        return resp
+
 
     # Create pipeline with typed config
     pipeline = Pipeline(config=config.pipeline)
